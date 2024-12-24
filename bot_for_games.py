@@ -10,8 +10,9 @@ write_Bums = 'Bums'
 write_1win = '1win'
 chat_coordinate = 670, 430
 app_coordinate = 1060, 1180
-accept_button_coordinate = 1280, 960
-tap_coordinate = 1400, 700
+accept_button_coordinate_1win = 1280, 960
+accept_button_coordinate_Bums = 1280, 1000
+tap_coordinate = 1300, 700
 close_coordinate = 900, 230
 close_coordinate_accept = 1500, 770
 
@@ -40,15 +41,16 @@ def close_app():
     pyautogui.click(close_coordinate_accept)
 
 # нажать кнопку 
-def click_accept():
+def click_accept(accept_button_coordinate):
     pyautogui.moveTo(accept_button_coordinate)
+    time.sleep(1)
 
 # тапаем тапалку
 def tap_game():
     x, y = tap_coordinate
-    for i in range (0, random.randint(180, 230)):
-        pyautogui.click(x * random.uniform(0.8, 1.1), y * random.uniform(0.8, 1.15))
-        time.sleep(0.2 * random.uniform(0.6, 1.1))
+    for i in range (0, random.randint(400, 530)):
+        pyautogui.click(x * random.uniform(0.9, 1.1), y * random.uniform(0.9, 1.1))
+        time.sleep(0.1 * random.uniform(0.6, 1.1))
 
 start_telegram()
 
@@ -56,12 +58,12 @@ start_telegram()
 try:
     while True:
         open_app(write_Bums)
-        click_accept()
+        click_accept(accept_button_coordinate_Bums)
         tap_game()
         close_app()
         time.sleep(3)
         open_app(write_1win)
-        click_accept()
+        click_accept(accept_button_coordinate_1win)
         tap_game()
         close_app()
         time.sleep(240 * random.uniform(0.8, 1.1))
