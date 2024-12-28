@@ -8,11 +8,11 @@ program_path = "C:\Program Files\BlueStacks_nxt\HD-Player.exe"
 telegram_coordinate = 965, 460
 search_coordinate = 950, 220
 write_Bums = 'Bums'
-write_1win = '1win'
+write_1win = '1win Token'
 chat_coordinate = 670, 430
 app_coordinate = 1060, 1180
 accept_button_coordinate_1win = 1280, 960
-accept_button_coordinate_Bums = 1630, 830
+accept_button_coordinate_Bums = 1230, 1125
 tap_coordinate = 1300, 700
 close_coordinate = 900, 230
 close_coordinate_accept = 1500, 770
@@ -26,16 +26,17 @@ time.sleep(15)
 def start_telegram():
     pyautogui.click(telegram_coordinate)
     time.sleep(15)
-
 # поиск и открытие приложения
 def open_app(write_name_app):
     pyautogui.click(search_coordinate)
+    time.sleep(1)
     pyautogui.typewrite(write_name_app)
     time.sleep(2)
     pyautogui.click(chat_coordinate)
-    time.sleep(2)
+    time.sleep(1)
     pyautogui.click(app_coordinate)
     time.sleep(20)
+
 # закрываем app
 def close_app():
     pyautogui.click(close_coordinate)
@@ -45,7 +46,6 @@ def close_app():
 # нажать кнопку 
 def click_accept(accept_button_coordinate):
     pyautogui.moveTo(accept_button_coordinate)
-    time.sleep(1)
 
 # тапаем тапалку
 def tap_game():
